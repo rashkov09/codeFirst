@@ -1,30 +1,23 @@
 package entities.ex2;
 
+import entities.BaseEntity;
+
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "sale")
-public class Sale {
-    private Integer id;
+public class Sale extends BaseEntity {
+
     private Product product;
     private Customer customer;
     private StoreLocation storeLocation;
-    private Date date;
+    private LocalDateTime date;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
+    public Sale() {
     }
 
     @ManyToOne
-    @JoinColumn(name = "product_id",referencedColumnName = "product_id")
 
     public Product getProduct() {
         return product;
@@ -35,7 +28,7 @@ public class Sale {
     }
 
     @ManyToOne
-    @JoinColumn(name = "customer_id",referencedColumnName = "customer_id")
+
 
     public Customer getCustomer() {
         return customer;
@@ -46,7 +39,6 @@ public class Sale {
     }
 
     @ManyToOne
-    @JoinColumn(name = "store_location_id",referencedColumnName = "store_location_id")
 
     public StoreLocation getStoreLocation() {
         return storeLocation;
@@ -58,11 +50,11 @@ public class Sale {
 
     @Column(name = "date")
 
-    public Date getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 }

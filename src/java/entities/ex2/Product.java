@@ -1,27 +1,21 @@
 package entities.ex2;
 
+import entities.BaseEntity;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Set;
 
 @Entity
 @Table(name = "products")
-public class Product {
-    private Integer id;
+public class Product extends BaseEntity {
+
     private String name;
-    private Double quantity;
+    private Integer quantity;
     private BigDecimal price;
     private Set<Sale> sales;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "product_id")
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
+    public Product() {
     }
 
     @Column(name = "name")
@@ -36,11 +30,11 @@ public class Product {
 
     @Column(name = "quantity")
 
-    public Double getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Double quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 
@@ -54,13 +48,14 @@ public class Product {
         this.price = price;
     }
 
-    @OneToMany(mappedBy = "product",targetEntity = Sale.class)
+    @OneToMany(mappedBy = "product", cascade = CascadeType.PERSIST)
 
     public Set<Sale> getSales() {
         return sales;
     }
 
     public void setSales(Set<Sale> sales) {
+
         this.sales = sales;
     }
 }

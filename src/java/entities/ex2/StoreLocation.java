@@ -1,24 +1,17 @@
 package entities.ex2;
 
+import entities.BaseEntity;
+
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
 @Table(name = "store_locations")
-public class StoreLocation {
-    private Integer id;
+public class StoreLocation extends BaseEntity {
     private String location_name;
     private Set<Sale> sales;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "store_location_id")
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
+    public StoreLocation() {
     }
 
     @Column(name = "location_name")
@@ -31,7 +24,7 @@ public class StoreLocation {
         this.location_name = location_name;
     }
 
-    @OneToMany(mappedBy = "storeLocation", targetEntity = Sale.class)
+    @OneToMany(mappedBy = "storeLocation", cascade = CascadeType.PERSIST)
 
     public Set<Sale> getSales() {
         return sales;

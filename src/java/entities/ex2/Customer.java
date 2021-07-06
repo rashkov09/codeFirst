@@ -1,26 +1,20 @@
 package entities.ex2;
 
+import entities.BaseEntity;
+
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
 @Table(name = "customers")
-public class Customer {
-    private Integer id;
+public class Customer extends BaseEntity {
     private String name;
     private String email;
     private String creditCardNumber;
     private Set<Sale> sales;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "customer_Id")
-    public Integer getId() {
-        return id;
-    }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public Customer() {
     }
 
     @Column(name = "name")
@@ -33,7 +27,7 @@ public class Customer {
         this.name = name;
     }
 
-    @Column(name = "email")
+    @Column(name = "email", nullable = false, unique = true)
 
     public String getEmail() {
         return email;
@@ -43,7 +37,7 @@ public class Customer {
         this.email = email;
     }
 
-    @Column(name = "credit_card_number",columnDefinition = "VARCHAR(20) UNIQUE")
+    @Column(name = "credit_card_number",nullable = false, unique = true)
 
     public String getCreditCardNumber() {
         return creditCardNumber;
@@ -53,7 +47,7 @@ public class Customer {
         this.creditCardNumber = creditCardNumber;
     }
 
-    @OneToMany(mappedBy = "customer",targetEntity = Sale.class)
+    @OneToMany(mappedBy = "customer",cascade = CascadeType.PERSIST)
 
     public Set<Sale> getSales() {
         return sales;

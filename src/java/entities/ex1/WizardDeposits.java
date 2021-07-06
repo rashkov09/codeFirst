@@ -1,5 +1,6 @@
 package entities.ex1;
 
+import entities.BaseEntity;
 import org.hibernate.annotations.Check;
 
 import javax.persistence.*;
@@ -10,8 +11,7 @@ import java.time.LocalDateTime;
 @Table(name = "wizard_deposits", uniqueConstraints = {@UniqueConstraint(columnNames = "age")})
 @Check(constraints = "age > 0")
 
-public class WizardDeposits {
-    private Integer id;
+public class WizardDeposits extends BaseEntity {
     private String firstName;
     private String lastName;
     private String notes;
@@ -26,17 +26,6 @@ public class WizardDeposits {
     private LocalDateTime  depositExpirationDate;
     private Boolean isDepositExpired;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     @Column(name = "first_name", columnDefinition = "VARCHAR(50)")
     public String getFirstName() {
@@ -165,4 +154,6 @@ public class WizardDeposits {
     public void setDepositExpired(Boolean depositExpired) {
         isDepositExpired = depositExpired;
     }
+
+
 }
