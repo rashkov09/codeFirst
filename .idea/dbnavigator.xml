@@ -26,7 +26,6 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="4e87e0be-b648-49bc-94c2-46295d05c7e3">
-        <schema name="gringotts" object-types="table, view, procedure, function, constraint, index, column, dataset trigger" />
         <schema name="sales" object-types="table, view" />
       </connection>
     </loaded-nodes>
