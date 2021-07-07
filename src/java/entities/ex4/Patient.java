@@ -1,6 +1,7 @@
 package entities.ex4;
 
 import entities.BaseEntity;
+import org.hibernate.annotations.Check;
 
 import javax.persistence.*;
 import java.sql.Blob;
@@ -9,7 +10,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Check(constraints = "has_medical_insurance IN ('yes','no')")
 @Table(name = "patients")
+
 public class Patient extends BaseEntity {
     private String firstName;
     private String lastName;
@@ -35,7 +38,7 @@ public class Patient extends BaseEntity {
         setHasMedicalInsurance(hasMedicalInsurance);
     }
 
-    @Column(name = "first_name")
+    @Column(name = "first_name", nullable = false)
 
     public String getFirstName() {
         return firstName;
@@ -45,7 +48,7 @@ public class Patient extends BaseEntity {
         this.firstName = firstName;
     }
 
-    @Column(name = "last_name")
+    @Column(name = "last_name", nullable = false)
 
     public String getLastName() {
         return lastName;
@@ -55,7 +58,7 @@ public class Patient extends BaseEntity {
         this.lastName = lastName;
     }
 
-    @Column(name = "address")
+    @Column(name = "address", nullable = false)
 
     public String getAddress() {
         return address;
@@ -75,7 +78,7 @@ public class Patient extends BaseEntity {
         this.email = email;
     }
 
-    @Column(name = "date_of_birth")
+    @Column(name = "date_of_birth", nullable = false)
 
     public LocalDateTime getDateOfBirth() {
         return dateOfBirth;
@@ -85,7 +88,7 @@ public class Patient extends BaseEntity {
         this.dateOfBirth = dateOfBirth;
     }
 
-    @Column(name = "picture")
+    @Column(name = "picture", nullable = true)
 
     public Blob getPicture() {
         return picture;
@@ -95,7 +98,8 @@ public class Patient extends BaseEntity {
         this.picture = picture;
     }
 
-    @Column(name = "has_medical_insurance")
+    @Column(name = "has_medical_insurance", nullable = false)
+
 
     public String getHasMedicalInsurance() {
         return hasMedicalInsurance;

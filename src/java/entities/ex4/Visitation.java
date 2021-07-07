@@ -21,7 +21,7 @@ public class Visitation extends BaseEntity {
         setComments(comments);
     }
 
-    @Column(name = "date")
+    @Column(name = "date", nullable = false)
 
     public LocalDateTime getDate() {
         return date;

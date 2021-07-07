@@ -10,5 +10,9 @@ public class ExFour implements Exercise {
     public void run() {
         EntityManager em = Persistence.createEntityManagerFactory("gpHistory").createEntityManager();
 
+        Engine engine = new Engine(em);
+
+        engine.run();
+
     }
 }

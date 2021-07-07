@@ -22,7 +22,7 @@ public class Diagnose extends BaseEntity {
         setComments(comments);
     }
 
-    @Column(name ="name")
+    @Column(name ="name", nullable = false)
 
     public String getName() {
         return name;
@@ -41,7 +41,7 @@ public class Diagnose extends BaseEntity {
         this.comments = comments;
     }
 
-    @OneToMany(mappedBy = "diagnose")
+    @ManyToMany
 
     public Set<Medicament> getMedicaments() {
         return medicaments;
