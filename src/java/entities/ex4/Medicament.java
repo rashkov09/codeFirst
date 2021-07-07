@@ -2,16 +2,14 @@ package entities.ex4;
 
 import entities.BaseEntity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "medicaments")
 public class Medicament extends BaseEntity {
     private String name;
-    private Diagnose diagnose;
+    private Set<Diagnose> diagnose;
 
 
     public Medicament() {
@@ -21,7 +19,7 @@ public class Medicament extends BaseEntity {
         setName(name);
     }
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
 
     public String getName() {
         return name;
@@ -31,13 +29,13 @@ public class Medicament extends BaseEntity {
         this.name = name;
     }
 
-    @ManyToOne
+    @ManyToMany(mappedBy = "medicaments")
 
-    public Diagnose getDiagnose() {
+    public Set<Diagnose> getDiagnose() {
         return diagnose;
     }
 
-    public void setDiagnose(Diagnose diagnose) {
+    public void setDiagnose(Set<Diagnose> diagnose) {
         this.diagnose = diagnose;
     }
 }

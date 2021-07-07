@@ -3,6 +3,7 @@ import entities.ex1.ExOne;
 import entities.ex2.ExTwo;
 import entities.ex3.ExThree;
 import entities.ex4.ExFour;
+import entities.ex5.ExFive;
 
 import java.util.Scanner;
 
@@ -29,6 +30,9 @@ public class Main {
                 break;
             case 4:
                 exercise = new ExFour();
+                break;
+            case 5:
+                exercise= new ExFive();
                 break;
             default:
                 System.out.println("Wrong exercise number! Please try again.");

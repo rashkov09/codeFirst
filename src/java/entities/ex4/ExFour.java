@@ -8,7 +8,11 @@ import javax.persistence.Persistence;
 public class ExFour implements Exercise {
     @Override
     public void run() {
-        EntityManager em = Persistence.createEntityManagerFactory("gpHistory").createEntityManager();
+        EntityManager em = Persistence.createEntityManagerFactory("hospital").createEntityManager();
+
+        Engine engine = new Engine(em);
+
+        engine.run();
 
     }
 }

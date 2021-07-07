@@ -47,7 +47,7 @@
         </properties>
     </persistence-unit>
 
-    <persistence-unit name="gpHistory">
+    <persistence-unit name="hospital">
         <class>entities.ex4.ExFour</class>
         <class>entities.ex4.Diagnose</class>
         <class>entities.ex4.Medicament</class>
@@ -56,14 +56,34 @@
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="hibernate.connection.url"
-                      value="jdbc:mysql://100.67.30.142:3306/gp_history?createDatabaseIfNotExist=true&amp;allowPublicKeyRetrieval=true&amp;useSSL=false&amp;serverTimezone=UTC"/>
+                      value="jdbc:mysql://100.67.30.142:3306/hospital?createDatabaseIfNotExist=true&amp;allowPublicKeyRetrieval=true&amp;useSSL=false&amp;serverTimezone=UTC"/>
             <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.connection.username" value="dobrin_r"/>
             <property name="hibernate.connection.password" value="D0brin-r"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
-            <property name="hibernate.show_sql" value="true"/>
-            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.show_sql" value="false"/>
+            <property name="hibernate.format_sql" value="false"/>
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="billsPaymentSystem">
+        <class>entities.ex5.ExFive</class>
+        <class>entities.ex5.BillingDetail</class>
+        <class>entities.ex5.User</class>
+        <class>entities.ex5.BankAccount</class>
+        <class>entities.ex5.CreditCard</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="hibernate.connection.url"
+                      value="jdbc:mysql://100.67.30.142:3306/bills_payment_system?createDatabaseIfNotExist=true&amp;allowPublicKeyRetrieval=true&amp;useSSL=false&amp;serverTimezone=UTC"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.connection.username" value="dobrin_r"/>
+            <property name="hibernate.connection.password" value="D0brin-r"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
+            <property name="hibernate.show_sql" value="false"/>
+            <property name="hibernate.format_sql" value="false"/>
         </properties>
     </persistence-unit>
 
