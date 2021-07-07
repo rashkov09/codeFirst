@@ -26,6 +26,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="4e87e0be-b648-49bc-94c2-46295d05c7e3">
+        <schema name="gringotts" object-types="table, view, procedure, function, constraint, index, column, dataset trigger" />
         <schema name="sales" object-types="table, view" />
       </connection>
     </loaded-nodes>
@@ -43,6 +44,11 @@
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="4e87e0be-b648-49bc-94c2-46295d05c7e3" dataset="sales.people" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="4e87e0be-b648-49bc-94c2-46295d05c7e3" dataset="gringotts.wizard_deposits" active-filter-id="7f71dcf5-fb8e-4d50-9ae8-bd5681635f9b">
+      <filter id="7f71dcf5-fb8e-4d50-9ae8-bd5681635f9b" name="0" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="id" operator="&gt;" value="0" active="true" />
+      </filter>
+    </filter-actions>
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />

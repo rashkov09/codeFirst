@@ -37,7 +37,7 @@ public class Student extends User {
         this.attendance = attendance;
     }
 
-    @ManyToMany(mappedBy = "students",targetEntity = Course.class)
+    @ManyToMany(mappedBy = "students")
 
     public Set<Course> getCourses() {
         return courses;

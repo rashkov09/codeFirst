@@ -31,6 +31,8 @@
         <class>entities.ex3.Person</class>
         <class>entities.ex3.Student</class>
         <class>entities.ex3.Teacher</class>
+        <class>entities.ex3.Course</class>
+        <class>entities.ex3.User</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="hibernate.connection.url"
@@ -45,7 +47,25 @@
         </properties>
     </persistence-unit>
 
-
+    <persistence-unit name="gpHistory">
+        <class>entities.ex4.ExFour</class>
+        <class>entities.ex4.Diagnose</class>
+        <class>entities.ex4.Medicament</class>
+        <class>entities.ex4.Patient</class>
+        <class>entities.ex4.Visitation</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="hibernate.connection.url"
+                      value="jdbc:mysql://100.67.30.142:3306/gp_history?createDatabaseIfNotExist=true&amp;allowPublicKeyRetrieval=true&amp;useSSL=false&amp;serverTimezone=UTC"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.connection.username" value="dobrin_r"/>
+            <property name="hibernate.connection.password" value="D0brin-r"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+    </persistence-unit>
 
     <persistence-unit name="gringotts">
         <class>entities.ex1.ExOne</class>

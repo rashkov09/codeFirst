@@ -35,7 +35,7 @@ public class Teacher extends User {
         this.salary = salary;
     }
 
-    @OneToMany(mappedBy = "teacher", targetEntity = Course.class)
+    @OneToMany(mappedBy = "teacher")
 
     public Set<Course> getCourses() {
         return courses;

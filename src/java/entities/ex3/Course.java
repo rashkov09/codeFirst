@@ -17,6 +17,8 @@ public class Course extends BaseEntity {
     private Set<Student> students;
     private Teacher teacher;
 
+    public Course() {
+    }
 
     @Column(name = "name")
 
@@ -69,6 +71,7 @@ public class Course extends BaseEntity {
     }
 
     @ManyToMany
+
     public Set<Student> getStudents() {
         return students;
     }
@@ -77,8 +80,8 @@ public class Course extends BaseEntity {
         this.students = students;
     }
 
-
     @ManyToOne
+
     public Teacher getTeacher() {
         return teacher;
     }
