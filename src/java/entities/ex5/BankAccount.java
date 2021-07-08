@@ -8,13 +8,13 @@ import javax.persistence.*;
 public class BankAccount extends BillingDetail {
     private String bankName;
     private String swiftCode;
-    private BillingDetail billingDetail;
+
 
     public BankAccount() {
     }
 
-    public BankAccount(Long number, User owner, String bankName, String swiftCode) {
-        super(number, owner);
+    public BankAccount(String number, User owner, String bankName, String swiftCode) {
+        super(number,owner);
         this.bankName = bankName;
         this.swiftCode = swiftCode;
     }
@@ -39,13 +39,5 @@ public class BankAccount extends BillingDetail {
         this.swiftCode = swiftCode;
     }
 
-    @ManyToOne
 
-    public BillingDetail getBillingDetail() {
-        return billingDetail;
-    }
-
-    public void setBillingDetail(BillingDetail billingDetail) {
-        this.billingDetail = billingDetail;
-    }
 }

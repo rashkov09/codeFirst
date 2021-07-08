@@ -8,27 +8,27 @@ import java.util.Set;
 @Entity
 @Table(name = "billing_details")
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class BillingDetail extends BaseEntity {
-    private Long number;
+public abstract class BillingDetail extends BaseEntity{
+    private String number;
     private User owner;
-    private Set<CreditCard> creditCards;
-    private Set<BankAccount> bankAccounts;
+
 
     public BillingDetail() {
     }
 
-    public BillingDetail(Long number, User owner) {
+    public BillingDetail(String number, User owner) {
         this.number = number;
         this.owner = owner;
     }
 
-    @Column(name = "number",unique = true,nullable = false)
 
-    public Long getNumber() {
+    @Column(name = "number")
+
+    public String getNumber() {
         return number;
     }
 
-    public void setNumber(Long number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 
@@ -42,23 +42,7 @@ public abstract class BillingDetail extends BaseEntity {
         this.owner = owner;
     }
 
-    @OneToMany(mappedBy = "billingDetail")
 
-    public Set<CreditCard> getCreditCards() {
-        return creditCards;
-    }
 
-    public void setCreditCards(Set<CreditCard> creditCards) {
-        this.creditCards = creditCards;
-    }
 
-    @OneToMany(mappedBy = "billingDetail")
-
-    public Set<BankAccount> getBankAccounts() {
-        return bankAccounts;
-    }
-
-    public void setBankAccounts(Set<BankAccount> bankAccounts) {
-        this.bankAccounts = bankAccounts;
-    }
 }

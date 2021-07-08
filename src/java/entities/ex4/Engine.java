@@ -146,7 +146,7 @@ public class Engine implements Exercise {
         System.out.print("Diagnose comment: ");
         String comment= sc.nextLine();
         Diagnose diagnose = new Diagnose(name,comment);
-        em.persist(diagnose);
+        getEm().persist(diagnose);
         System.out.print("Medicaments needed(split with ,): ");
         String[] medicaments = sc.nextLine().trim().split(",\\s+");
 
@@ -182,6 +182,11 @@ public class Engine implements Exercise {
 
         insert(visitation);
         getEm().getTransaction().commit();
+    }
+
+    private Diagnose getDiagnose(String name) {
+        return getEm().createQuery("SELECT d FROM Diagnose AS d",Diagnose.class)
+                .getResultList().stream().filter(d->d.getName().equals(name)).findFirst().orElse(null);
     }
 
     private Medicament getMedicament(String currMed) {
@@ -222,9 +227,7 @@ public class Engine implements Exercise {
 
     private void insert(Object obj) {
         try {
-            getEm().getTransaction().begin();
             getEm().persist(obj);
-            getEm().getTransaction().commit();
             System.out.printf("%s added successfully!\n",obj.getClass().getSimpleName());
         } catch (Exception e) {
             System.out.println(e.getMessage());

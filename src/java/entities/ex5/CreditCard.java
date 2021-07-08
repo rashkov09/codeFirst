@@ -11,14 +11,14 @@ import java.time.Year;
 public class CreditCard extends BillingDetail {
     private String cardType;
     private Month expirationMonth;
-    private Year expirationYear;
-    private BillingDetail billingDetail;
+    private int expirationYear;
+
 
     public CreditCard() {
     }
 
-    public CreditCard(Long number, User owner, String cardType, Month expirationMonth, Year expirationYear) {
-        super(number, owner);
+    public CreditCard(String number, User owner, String cardType, Month expirationMonth, int expirationYear) {
+        super( number, owner);
         this.cardType = cardType;
         this.expirationMonth = expirationMonth;
         this.expirationYear = expirationYear;
@@ -46,21 +46,12 @@ public class CreditCard extends BillingDetail {
 
     @Column(name = "expiration_year",nullable = false)
 
-    public Year getExpirationYear() {
+    public Integer getExpirationYear() {
         return expirationYear;
     }
 
-    public void setExpirationYear(Year expirationYear) {
+    public void setExpirationYear(Integer expirationYear) {
         this.expirationYear = expirationYear;
     }
 
-    @ManyToOne
-
-    public BillingDetail getBillingDetail() {
-        return billingDetail;
-    }
-
-    public void setBillingDetail(BillingDetail billingDetail) {
-        this.billingDetail = billingDetail;
-    }
 }
