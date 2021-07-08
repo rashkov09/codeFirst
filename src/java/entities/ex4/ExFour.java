@@ -14,5 +14,9 @@ public class ExFour implements Exercise {
 
         engine.run();
 
+        Engine engine = new Engine(em);
+
+        engine.run();
+
     }
 }
